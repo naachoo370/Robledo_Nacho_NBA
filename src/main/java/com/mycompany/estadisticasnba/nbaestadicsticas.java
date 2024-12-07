@@ -125,7 +125,7 @@ public class nbaestadicsticas extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Archivo actualizado: " + filePath);
 
             // Llamada para calcular medias (si tienes esta funcionalidad)
-            calcularMedias(filePath);
+            Medias(filePath);
 
             // Mostrar mensaje cuando se inserte el jugador y sus puntuaciones
             JOptionPane.showMessageDialog(this, "Jugador y puntuaciones insertados correctamente.");
@@ -213,7 +213,7 @@ public class nbaestadicsticas extends javax.swing.JFrame {
         }
     }
 
-    private void calcularMedias(String filePath) throws IOException {
+    private void Medias(String filePath) throws IOException {
     File archivo = new File(filePath);
     try (FileInputStream fileInputStream = new FileInputStream(archivo)) {
         Workbook excel = new XSSFWorkbook(fileInputStream);
