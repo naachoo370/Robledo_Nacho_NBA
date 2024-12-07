@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.9" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <Component id="jTabbedTiros" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <Component id="jTabbedTiros" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Container class="javax.swing.JTabbedPane" name="jTabbedTiros">
+      <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="cc" red="cc" type="rgb"/>
+        </Property>
+      </Properties>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
+      <SubComponents>
+        <Container class="javax.swing.JPanel" name="rebotes">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="cc" red="cc" type="rgb"/>
+            </Property>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="M&#xe1;s Datos">
+                <Property name="tabTitle" type="java.lang.String" value="M&#xe1;s Datos"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="robos" alignment="0" min="-2" pref="57" max="-2" attributes="0"/>
+                                          <Component id="jLabel9" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="rebotes_spinner" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
+                                          <Component id="robos_spinner" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <Component id="perdidas" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace max="32767" attributes="0"/>
+                                                  <Component id="perdidas_spinner" min="-2" pref="72" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <Component id="asistencias" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                                                  <Component id="asistencias_spinner" min="-2" pref="72" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Component id="FaltasRecibidas_Spinner" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="faltas_recibidas" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="tiros_fallados" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="tapones_a_favor" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="tiros_libres_fallados" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="tapones_recibidos" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="faltas_realizadas" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="tiros_falladas_spinner" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
+                                                  <Component id="tiros_libres_fallados_spinner" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
+                                                  <Component id="tapones_a_favor_spinner" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
+                                                  <Component id="tapones_recibidos_spinner" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
+                                                  <Component id="faltas_realizadas_spinner" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="183" max="-2" attributes="0"/>
+                              <Component id="Guardar" min="-2" pref="100" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="216" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="rebotes_spinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="asistencias" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="asistencias_spinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="robos" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="robos_spinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="perdidas" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="perdidas_spinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="faltas_recibidas" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="FaltasRecibidas_Spinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="tiros_falladas_spinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tiros_fallados" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="tapones_a_favor" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tapones_a_favor_spinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="tiros_libres_fallados" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tiros_libres_fallados_spinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="tapones_recibidos" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tapones_recibidos_spinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="faltas_realizadas" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="faltas_realizadas_spinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="Guardar" min="-2" pref="23" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="jLabel9">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="0" red="0" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Rebotes"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JSpinner" name="rebotes_spinner">
+            </Component>
+            <Component class="javax.swing.JLabel" name="asistencias">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Asistencias"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JSpinner" name="asistencias_spinner">
+            </Component>
+            <Component class="javax.swing.JLabel" name="robos">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Robos"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JSpinner" name="robos_spinner">
+            </Component>
+            <Component class="javax.swing.JLabel" name="tapones_a_favor">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Tapones a Favor"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JSpinner" name="tapones_a_favor_spinner">
+            </Component>
+            <Component class="javax.swing.JLabel" name="tiros_fallados">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Tiros fallados"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="tiros_libres_fallados">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Tiros libres fallados"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="perdidas">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Perdidas"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="tapones_recibidos">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Tapones recibidos"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JSpinner" name="tiros_falladas_spinner">
+            </Component>
+            <Component class="javax.swing.JSpinner" name="tiros_libres_fallados_spinner">
+            </Component>
+            <Component class="javax.swing.JSpinner" name="tapones_recibidos_spinner">
+            </Component>
+            <Component class="javax.swing.JSpinner" name="perdidas_spinner">
+            </Component>
+            <Component class="javax.swing.JLabel" name="faltas_recibidas">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Faltas Recibidas"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JSpinner" name="FaltasRecibidas_Spinner">
+            </Component>
+            <Component class="javax.swing.JLabel" name="faltas_realizadas">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Faltas Realiadas"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JSpinner" name="faltas_realizadas_spinner">
+            </Component>
+            <Component class="javax.swing.JButton" name="Guardar">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Guadar"/>
+                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[72, 30]"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="GuardarActionPerformed"/>
+              </Events>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JLayeredPane" name="jLayeredPane1">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="cc" red="cc" type="rgb"/>
+            </Property>
+            <Property name="opaque" type="boolean" value="true"/>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[605, 357]"/>
+            </Property>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="Tiros">
+                <Property name="tabTitle" type="java.lang.String" value="Tiros"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                              <Component id="jugador" min="-2" pref="52" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jugadores" min="-2" pref="130" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="Equipo" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel5" alignment="0" min="-2" pref="112" max="-2" attributes="0"/>
+                                  <Component id="tiros_realizados_2" alignment="0" min="-2" pref="112" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="185" max="-2" attributes="0"/>
+                                      <Component id="equipo" min="-2" pref="132" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="149" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                              <Component id="jSpinnertirosRealizados" alignment="1" min="-2" pref="92" max="-2" attributes="0"/>
+                                              <Component id="tiros_encestados_3_spinner" alignment="1" min="-2" pref="74" max="-2" attributes="0"/>
+                                              <Component id="tiros_realizados_3_spinner" alignment="1" min="-2" pref="74" max="-2" attributes="0"/>
+                                              <Component id="tiros_realizados_2_spinner" alignment="1" min="-2" pref="74" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="tiros_realizados_libres_spinner" alignment="0" min="-2" pref="74" max="-2" attributes="0"/>
+                                                  <Component id="tiros_encestados_2_spinner" alignment="0" min="-2" pref="75" max="-2" attributes="0"/>
+                                                  <Component id="tiros_encestados_libres_spinner" alignment="0" min="-2" pref="74" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Component id="tiros_encestados_3" alignment="0" min="-2" pref="123" max="-2" attributes="0"/>
+                                  <Component id="tiros_realizados_3" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
+                                  <Component id="tiros_encestados_2" alignment="0" min="-2" pref="131" max="-2" attributes="0"/>
+                                  <Component id="tiros_libres_realizados" alignment="0" min="-2" pref="123" max="-2" attributes="0"/>
+                                  <Component id="tiros_libres_encestados" alignment="0" min="-2" pref="123" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="180" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jugador" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="jugadores" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="Equipo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="equipo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jSpinnertirosRealizados" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel5" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="tiros_realizados_3" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                          <Component id="tiros_realizados_3_spinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="tiros_encestados_3" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                          <Component id="tiros_encestados_3_spinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="tiros_realizados_2" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                          <Component id="tiros_realizados_2_spinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="tiros_encestados_2" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="tiros_encestados_2_spinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="tiros_libres_realizados" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                          <Component id="tiros_realizados_libres_spinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="tiros_libres_encestados" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="tiros_encestados_libres_spinner" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="86" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="jLabel5">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Tiros Realizados"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JSpinner" name="jSpinnertirosRealizados">
+            </Component>
+            <Component class="javax.swing.JLabel" name="tiros_libres_realizados">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Tiros libres realizados"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JSpinner" name="tiros_realizados_libres_spinner">
+            </Component>
+            <Component class="javax.swing.JLabel" name="tiros_libres_encestados">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Tiros libres metidos"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JSpinner" name="tiros_encestados_libres_spinner">
+            </Component>
+            <Component class="javax.swing.JLabel" name="tiros_encestados_2">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Tiros encestados de 2"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JSpinner" name="tiros_encestados_2_spinner">
+            </Component>
+            <Component class="javax.swing.JLabel" name="tiros_realizados_2">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Tiros realizados de 2"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JSpinner" name="tiros_realizados_2_spinner">
+            </Component>
+            <Component class="javax.swing.JLabel" name="tiros_realizados_3">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Tiros realizados de 3"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JSpinner" name="tiros_encestados_3_spinner">
+            </Component>
+            <Component class="javax.swing.JLabel" name="tiros_encestados_3">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Tiros encestados de 3"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JSpinner" name="tiros_realizados_3_spinner">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jugador">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Jugador"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="Equipo">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Equipo"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="jugadores">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="1">
+                    <StringItem index="0" value=" "/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="equipo">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="1">
+                    <StringItem index="0" value=" "/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="equipoActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+          </SubComponents>
+        </Container>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>
