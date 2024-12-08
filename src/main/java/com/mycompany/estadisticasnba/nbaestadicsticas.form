@@ -66,68 +66,72 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="robos" alignment="0" min="-2" pref="57" max="-2" attributes="0"/>
-                                          <Component id="jLabel9" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
+                                  <Component id="robos" alignment="0" min="-2" pref="57" max="-2" attributes="0"/>
+                                  <Component id="jLabel9" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="rebotes_spinner" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
+                                  <Component id="robos_spinner" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="perdidas" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="perdidas_spinner" min="-2" pref="72" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="rebotes_spinner" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
-                                          <Component id="robos_spinner" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                              <Group type="102" alignment="1" attributes="0">
-                                                  <Component id="perdidas" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="32767" attributes="0"/>
-                                                  <Component id="perdidas_spinner" min="-2" pref="72" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="1" attributes="0">
-                                                  <Component id="asistencias" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                                                  <Component id="asistencias_spinner" min="-2" pref="72" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Component id="FaltasRecibidas_Spinner" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="asistencias" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                                          <Component id="asistencias_spinner" min="-2" pref="72" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
+                                  <Component id="FaltasRecibidas_Spinner" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="faltas_recibidas" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="faltas_recibidas" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="tiros_fallados" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="tapones_a_favor" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="tiros_libres_fallados" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="tapones_recibidos" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="faltas_realizadas" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="tiros_falladas_spinner" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
-                                                  <Component id="tiros_libres_fallados_spinner" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
-                                                  <Component id="tapones_a_favor_spinner" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
-                                                  <Component id="tapones_recibidos_spinner" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
-                                                  <Component id="faltas_realizadas_spinner" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
+                                          <Component id="tiros_fallados" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="tapones_a_favor" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="tiros_libres_fallados" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="tapones_recibidos" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="faltas_realizadas" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="tiros_falladas_spinner" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
+                                          <Component id="tiros_libres_fallados_spinner" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
+                                          <Component id="tapones_a_favor_spinner" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
+                                          <Component id="tapones_recibidos_spinner" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
+                                          <Component id="faltas_realizadas_spinner" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="183" max="-2" attributes="0"/>
-                              <Component id="Guardar" min="-2" pref="100" max="-2" attributes="0"/>
-                          </Group>
                       </Group>
                       <EmptySpace pref="216" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="graficos" min="-2" pref="92" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="193" max="-2" attributes="0"/>
+                          <Component id="Guardar" min="-2" pref="100" max="-2" attributes="0"/>
+                          <EmptySpace pref="312" max="32767" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -179,8 +183,15 @@
                           <Component id="faltas_realizadas_spinner" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="Guardar" min="-2" pref="23" max="-2" attributes="0"/>
+                      <Component id="graficos" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace pref="388" max="32767" attributes="0"/>
+                          <Component id="Guardar" min="-2" pref="23" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -268,6 +279,14 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="GuardarActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="graficos">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="grafico"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="graficosActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
