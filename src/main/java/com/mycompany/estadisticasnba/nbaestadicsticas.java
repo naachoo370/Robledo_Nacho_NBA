@@ -3,24 +3,50 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.estadisticasnba;
+
 import java.io.File;
 import java.io.FileInputStream;
-import org.apache.poi.ss.usermodel.*;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
-import javax.swing.*;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
+// Apache POI para trabajar con archivos Excel
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+// JFreeChart para gráficos
 import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartPanel;
 import org.jfree.chart.ChartUtils;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.renderer.category.LineAndShapeRenderer;
 import org.jfree.data.category.DefaultCategoryDataset;
+
+// iText para trabajar con PDFs
+import com.itextpdf.io.image.ImageData;
+import com.itextpdf.io.image.ImageDataFactory;
+import com.itextpdf.kernel.geom.PageSize;
+import com.itextpdf.kernel.pdf.PdfDocument;
+import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.Image;
+import com.itextpdf.layout.element.Paragraph;
+import com.itextpdf.layout.properties.TextAlignment;
+import java.io.FileNotFoundException;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+
+
+
+
+
 /**
  *
  * @author nacho
@@ -41,6 +67,8 @@ public class nbaestadicsticas extends javax.swing.JFrame {
         equipo.addActionListener(evt -> seleccionarEquipo());
         Guardar.addActionListener(evt -> crearExcel());
         graficos.addActionListener(evt -> generarGrafico());
+        pdf.addActionListener(evt -> pdf());
+
     }
 
     private void seleccionarEquipo() {
@@ -495,16 +523,175 @@ public class nbaestadicsticas extends javax.swing.JFrame {
                 false
         );
     }
+    
+    // Método para generar el PDF
+    private void pdf() {
+        String jugadorSeleccionado = (String) jugadores.getSelectedItem();
+        String equipoSeleccionado = (String) equipo.getSelectedItem();
 
-  
-    
-    
-    
+        if (jugadorSeleccionado == null || equipoSeleccionado == null) {
+            JOptionPane.showMessageDialog(this, "Por favor, selecciona un jugador y un equipo.");
+            return;
+        }
+
+        try {
+            // Ruta base para los PDFs
+            String carpetaBasePDF = "C:\\Users\\nacho\\OneDrive\\Desarrollo de interzaces\\NETBEANS\\EstadisticasNBA\\PDF\\";
+            if (!verificarOCrearCarpeta(carpetaBasePDF)) {
+                JOptionPane.showMessageDialog(this, "No se pudo crear la carpeta base para los PDFs.");
+                return;
+            }
+
+            // Crear la carpeta del equipo si no existe
+            String carpetaEquipo = carpetaBasePDF + equipoSeleccionado + "\\";
+            if (!verificarOCrearCarpeta(carpetaEquipo)) {
+                JOptionPane.showMessageDialog(this, "No se pudo crear la carpeta para el equipo: " + carpetaEquipo);
+                return;
+            }
+
+            // Ruta final del PDF
+            String rutaPDF = carpetaEquipo + jugadorSeleccionado + ".pdf";
+            System.out.println("Ruta final del PDF: " + rutaPDF);
+
+            // Configurar y crear el documento PDF
+            PdfWriter writer = new PdfWriter(new FileOutputStream(rutaPDF));
+            PdfDocument pdf = new PdfDocument(writer);
+            Document document = new Document(pdf, PageSize.A4, false);
+            document.setMargins(10, 10, 10, 10);
+
+            // Añadir título al PDF
+            Paragraph titulo = new Paragraph("Estadísticas de " + jugadorSeleccionado + " - " + equipoSeleccionado)
+                    .setFontSize(16)
+                    .setBold()
+                    .setTextAlignment(TextAlignment.CENTER);
+            document.add(titulo);
+            document.add(new Paragraph("\n"));
+
+            // Añadir gráficos y estadísticas al PDF
+            agregarGraficosAlPDF(document, jugadorSeleccionado);
+            agregarOtrasEstadisticas(document, jugadorSeleccionado, equipoSeleccionado);
+
+            document.close();
+
+            JOptionPane.showMessageDialog(this, "PDF de: " + jugadorSeleccionado + " creado exitosamente.");
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error al generar el PDF: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    // Método para verificar y crear las carpetas necesarias
+    private boolean verificarOCrearCarpeta(String ruta) {
+        File carpeta = new File(ruta);
+        if (!carpeta.exists()) {
+            return carpeta.mkdirs();
+        }
+        return true;
+    }
+
+    // Método para agregar gráficos al PDF
+    private void agregarGraficosAlPDF(Document document, String jugadorSeleccionado) throws IOException {
+        // Ruta de la carpeta donde se encuentran las imágenes de los gráficos
+        String carpetaGraficos = "C:\\Users\\nacho\\OneDrive\\Desarrollo de interzaces\\NETBEANS\\EstadisticasNBA\\graficas\\" + jugadorSeleccionado + "\\";
+
+        try {
+            // Cargar y añadir el gráfico de puntos
+            ImageData graficoPuntos = ImageDataFactory.create(carpetaGraficos + "Puntos.jpg");
+            Image graficoPuntosImage = new Image(graficoPuntos);
+            graficoPuntosImage.scaleToFit(300, 200);
+            document.add(new Paragraph("Gráfico de Puntos:"));
+            document.add(graficoPuntosImage);
+
+            // Cargar y añadir el gráfico de rebotes
+            ImageData graficoRebotes = ImageDataFactory.create(carpetaGraficos + "Rebotes.jpg");
+            Image graficoRebotesImage = new Image(graficoRebotes);
+            graficoRebotesImage.scaleToFit(300, 200);
+            document.add(new Paragraph("Gráfico de Rebotes:"));
+            document.add(graficoRebotesImage);
+
+            // Cargar y añadir el gráfico de asistencias
+            ImageData graficoAsistencias = ImageDataFactory.create(carpetaGraficos + "Asistencias.jpg");
+            Image graficoAsistenciasImage = new Image(graficoAsistencias);
+            graficoAsistenciasImage.scaleToFit(300, 200);
+            document.add(new Paragraph("Gráfico de Asistencias:"));
+            document.add(graficoAsistenciasImage);
+
+        } catch (IOException e) {
+            // Manejo de errores en caso de que no se encuentren las imágenes
+            document.add(new Paragraph("No se encontraron gráficos para " + jugadorSeleccionado));
+        }
+    }
+
+    private void agregarOtrasEstadisticas(Document document, String jugadorSeleccionado, String equipoSeleccionado) {
+        String archivoExcel = Paths.get(System.getProperty("user.dir"), "EstadisticasNBA_" + equipoSeleccionado + ".xlsx").toString();
+
+        try (FileInputStream fis = new FileInputStream(archivoExcel);
+             Workbook workbook = new XSSFWorkbook(fis)) {
+
+            Sheet hojaMedias = workbook.getSheet("Medias");
+            if (hojaMedias == null) {
+                document.add(new Paragraph("No se encontró la hoja 'Medias por jugador' en el archivo Excel."));
+                return;
+            }
+
+            double mediaTriples = 0, mediaFG = 0, mediaEFG = 0, mediaTS = 0;
+            boolean jugadorEncontrado = false;
+
+            for (Row fila : hojaMedias) {
+                if (fila.getRowNum() == 0) continue; // Saltar encabezado
+                Cell celdaJugador = fila.getCell(0);
+                if (celdaJugador != null && celdaJugador.getCellType() == CellType.STRING
+                        && celdaJugador.getStringCellValue().equals(jugadorSeleccionado)) {
+
+                    jugadorEncontrado = true;
+
+                    // Asegurarse de que las celdas contienen valores válidos
+                    mediaTriples = getNumericCellValue(fila.getCell(6));
+                    mediaFG = getNumericCellValue(fila.getCell(7));
+                    mediaEFG = getNumericCellValue(fila.getCell(8));
+                    mediaTS = getNumericCellValue(fila.getCell(9));
+                    break;
+                }
+            }
+
+            if (jugadorEncontrado) {
+                document.add(new Paragraph("Otras estadísticas de " + jugadorSeleccionado).setBold());
+                document.add(new Paragraph(String.format("Triples metidos por partido: %.2f", mediaTriples)));
+                document.add(new Paragraph(String.format("FG%%: %.2f%%    eFG%%: %.2f%%    TS%%: %.2f%%", mediaFG, mediaEFG, mediaTS)));
+            } else {
+                document.add(new Paragraph("No se encontraron estadísticas para el jugador " + jugadorSeleccionado));
+            }
+
+        } catch (FileNotFoundException e) {
+            document.add(new Paragraph("Archivo Excel no encontrado: " + archivoExcel));
+            e.printStackTrace();
+        } catch (IOException e) {
+            document.add(new Paragraph("Error al leer el archivo Excel: " + e.getMessage()));
+            e.printStackTrace();
+        }
+    }
+
+    // Método para manejar celdas con valores numéricos o nulos
+    private double getNumericCellValue(Cell cell) {
+        if (cell == null) {
+            return 0.0;
+        }
+        switch (cell.getCellType()) {
+            case NUMERIC:
+                return cell.getNumericCellValue();
+            case STRING:
+                try {
+                    return Double.parseDouble(cell.getStringCellValue());
+                } catch (NumberFormatException e) {
+                    return 0.0;
+                }
+            default:
+                return 0.0;
+        }
+    }
 
 
-    
-    
-    
 
     
         
@@ -581,6 +768,7 @@ public class nbaestadicsticas extends javax.swing.JFrame {
         faltas_realizadas_spinner = new javax.swing.JSpinner();
         Guardar = new javax.swing.JButton();
         graficos = new javax.swing.JButton();
+        pdf = new javax.swing.JButton();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         jLabel5 = new javax.swing.JLabel();
         jSpinnertirosRealizados = new javax.swing.JSpinner();
@@ -643,61 +831,64 @@ public class nbaestadicsticas extends javax.swing.JFrame {
             }
         });
 
+        pdf.setText("PDF");
+
         javax.swing.GroupLayout rebotesLayout = new javax.swing.GroupLayout(rebotes);
         rebotes.setLayout(rebotesLayout);
         rebotesLayout.setHorizontalGroup(
             rebotesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(rebotesLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addContainerGap()
+                .addComponent(pdf)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(rebotesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(rebotesLayout.createSequentialGroup()
                         .addGroup(rebotesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(robos, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(rebotesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(rebotes_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(robos_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(49, 49, 49)
-                        .addGroup(rebotesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(rebotesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(rebotesLayout.createSequentialGroup()
-                                    .addComponent(perdidas)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(perdidas_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(rebotesLayout.createSequentialGroup()
-                                    .addComponent(asistencias)
-                                    .addGap(49, 49, 49)
-                                    .addComponent(asistencias_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(FaltasRecibidas_Spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(rebotesLayout.createSequentialGroup()
-                        .addGap(79, 79, 79)
-                        .addGroup(rebotesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(faltas_recibidas)
                             .addGroup(rebotesLayout.createSequentialGroup()
                                 .addGroup(rebotesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tiros_fallados)
-                                    .addComponent(tapones_a_favor)
-                                    .addComponent(tiros_libres_fallados)
-                                    .addComponent(tapones_recibidos)
-                                    .addComponent(faltas_realizadas))
-                                .addGap(52, 52, 52)
+                                    .addComponent(robos, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(rebotesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tiros_falladas_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tiros_libres_fallados_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tapones_a_favor_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tapones_recibidos_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(faltas_realizadas_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(216, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rebotesLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(graficos, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49))
-            .addGroup(rebotesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(rebotesLayout.createSequentialGroup()
-                    .addGap(193, 193, 193)
-                    .addComponent(Guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(312, Short.MAX_VALUE)))
+                                    .addComponent(rebotes_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(robos_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(49, 49, 49)
+                                .addGroup(rebotesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(rebotesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(rebotesLayout.createSequentialGroup()
+                                            .addComponent(perdidas)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(perdidas_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(rebotesLayout.createSequentialGroup()
+                                            .addComponent(asistencias)
+                                            .addGap(49, 49, 49)
+                                            .addComponent(asistencias_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(FaltasRecibidas_Spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(rebotesLayout.createSequentialGroup()
+                                .addGap(79, 79, 79)
+                                .addGroup(rebotesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(faltas_recibidas)
+                                    .addGroup(rebotesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(Guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(rebotesLayout.createSequentialGroup()
+                                            .addGroup(rebotesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(tiros_fallados)
+                                                .addComponent(tapones_a_favor)
+                                                .addComponent(tiros_libres_fallados)
+                                                .addComponent(tapones_recibidos)
+                                                .addComponent(faltas_realizadas))
+                                            .addGap(52, 52, 52)
+                                            .addGroup(rebotesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(tiros_falladas_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(tiros_libres_fallados_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(tapones_a_favor_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(tapones_recibidos_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(faltas_realizadas_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                        .addGap(0, 210, Short.MAX_VALUE))
+                    .addGroup(rebotesLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(graficos, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         rebotesLayout.setVerticalGroup(
             rebotesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -739,13 +930,11 @@ public class nbaestadicsticas extends javax.swing.JFrame {
                     .addComponent(faltas_realizadas)
                     .addComponent(faltas_realizadas_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(graficos)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(rebotesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rebotesLayout.createSequentialGroup()
-                    .addContainerGap(388, Short.MAX_VALUE)
+                .addGroup(rebotesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(graficos)
                     .addComponent(Guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap()))
+                    .addComponent(pdf))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedTiros.addTab("Más Datos", rebotes);
@@ -840,7 +1029,7 @@ public class nbaestadicsticas extends javax.swing.JFrame {
                             .addComponent(tiros_encestados_2, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tiros_libres_realizados, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tiros_libres_encestados, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(180, Short.MAX_VALUE))
+                .addContainerGap(241, Short.MAX_VALUE))
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -969,6 +1158,7 @@ public class nbaestadicsticas extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedTiros;
     private javax.swing.JLabel jugador;
     private javax.swing.JComboBox<String> jugadores;
+    private javax.swing.JButton pdf;
     private javax.swing.JLabel perdidas;
     private javax.swing.JSpinner perdidas_spinner;
     private javax.swing.JPanel rebotes;
