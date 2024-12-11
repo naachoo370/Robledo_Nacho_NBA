@@ -1,10 +1,72 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.9" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="com.mycompany.estadisticasnba.letraconfg" name="letraconfg3">
+    </Component>
+    <Menu class="javax.swing.JMenuBar" name="jMenuBar2">
+      <SubComponents>
+        <Menu class="javax.swing.JMenu" name="tama&#xf1;o1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Tama&#xf1;o fuente"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tama&#xf1;o1ActionPerformed"/>
+          </Events>
+          <SubComponents>
+            <MenuItem class="javax.swing.JRadioButtonMenuItem" name="peque&#xf1;o">
+              <Properties>
+                <Property name="selected" type="boolean" value="true"/>
+                <Property name="text" type="java.lang.String" value="Peque&#xf1;o"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="peque&#xf1;oActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JRadioButtonMenuItem" name="normal">
+              <Properties>
+                <Property name="selected" type="boolean" value="true"/>
+                <Property name="text" type="java.lang.String" value="Mediano"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="normalActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JRadioButtonMenuItem" name="grande">
+              <Properties>
+                <Property name="selected" type="boolean" value="true"/>
+                <Property name="text" type="java.lang.String" value="Grande"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="condicionesServicio1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Condiciones de servicio"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="condicionesServicio1MouseClicked"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="condicionesServicio1ActionPerformed"/>
+          </Events>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="jMenuItem1"/>
+              </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jMenuItem1MouseClicked"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
+      </SubComponents>
+    </Menu>
+  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
   <SyntheticProperties>
+    <SyntheticProperty name="menuBar" type="java.lang.String" value="jMenuBar2"/>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
@@ -32,7 +94,8 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <Component id="jTabbedTiros" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jTabbedTiros" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -66,92 +129,110 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="pdf" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="robos" alignment="0" min="-2" pref="57" max="-2" attributes="0"/>
-                                  <Component id="jLabel9" alignment="0" min="-2" pref="60" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="rebotes_spinner" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
-                                  <Component id="robos_spinner" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="perdidas" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="perdidas_spinner" min="-2" pref="72" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="asistencias" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                                          <Component id="asistencias_spinner" min="-2" pref="72" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Component id="FaltasRecibidas_Spinner" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
-                              </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="Guardar" min="-2" pref="100" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="faltas_recibidas" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                      <Component id="Guardar" min="-2" pref="100" max="-2" attributes="0"/>
-                                      <Group type="102" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="tiros_fallados" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="tapones_a_favor" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="tiros_libres_fallados" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="tapones_recibidos" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="faltas_realizadas" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="faltas_recibidas" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="tiros_fallados" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="tapones_a_favor" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="tiros_libres_fallados" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="tapones_recibidos" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="faltas_realizadas" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="tiros_falladas_spinner" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
+                                                  <Component id="tiros_libres_fallados_spinner" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
+                                                  <Component id="tapones_a_favor_spinner" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
+                                                  <Component id="tapones_recibidos_spinner" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
+                                                  <Component id="faltas_realizadas_spinner" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
+                                              </Group>
                                           </Group>
-                                          <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="tiros_falladas_spinner" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
-                                              <Component id="tiros_libres_fallados_spinner" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
-                                              <Component id="tapones_a_favor_spinner" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
-                                              <Component id="tapones_recibidos_spinner" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
-                                              <Component id="faltas_realizadas_spinner" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="jLabel9" min="-2" pref="60" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Group type="103" groupAlignment="1" attributes="0">
+                                                  <Component id="letraconfg4" min="-2" pref="83" max="-2" attributes="0"/>
+                                                  <Component id="letraconfg5" min="-2" pref="83" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="rebotes_spinner" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
+                                          <Component id="robos_spinner" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="FaltasRecibidas_Spinner" alignment="0" min="-2" pref="72" max="-2" attributes="0"/>
+                                          <Component id="graficos" alignment="0" min="-2" pref="92" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="1" attributes="0">
+                                                  <Group type="102" alignment="1" attributes="0">
+                                                      <Component id="letraconfg6" min="-2" pref="83" max="-2" attributes="0"/>
+                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                      <Component id="perdidas_spinner" min="-2" pref="72" max="-2" attributes="0"/>
+                                                  </Group>
+                                                  <Group type="102" alignment="1" attributes="0">
+                                                      <Component id="letraconfg7" min="-2" pref="83" max="-2" attributes="0"/>
+                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                                      <Component id="asistencias_spinner" min="-2" pref="72" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
                                           </Group>
                                       </Group>
                                   </Group>
                               </Group>
+                              <EmptySpace min="211" pref="210" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="graficos" min="-2" pref="92" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="210" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="rebotes_spinner" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="asistencias" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="asistencias_spinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="letraconfg5" alignment="3" min="-2" pref="19" max="-2" attributes="0"/>
+                          <Component id="letraconfg7" alignment="3" min="-2" pref="19" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="robos" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="robos_spinner" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="perdidas" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="perdidas_spinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="letraconfg4" alignment="3" min="-2" pref="19" max="-2" attributes="0"/>
+                          <Component id="letraconfg6" alignment="3" min="-2" pref="19" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="faltas_recibidas" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="FaltasRecibidas_Spinner" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="tiros_falladas_spinner" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="tiros_fallados" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -193,22 +274,11 @@
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Rebotes"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JSpinner" name="rebotes_spinner">
             </Component>
-            <Component class="javax.swing.JLabel" name="asistencias">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Asistencias"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JSpinner" name="asistencias_spinner">
-            </Component>
-            <Component class="javax.swing.JLabel" name="robos">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Robos"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JSpinner" name="robos_spinner">
             </Component>
@@ -227,11 +297,6 @@
             <Component class="javax.swing.JLabel" name="tiros_libres_fallados">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Tiros libres fallados"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="perdidas">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Perdidas"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="tapones_recibidos">
@@ -283,6 +348,38 @@
             <Component class="javax.swing.JButton" name="pdf">
               <Properties>
                 <Property name="text" type="java.lang.String" value="PDF"/>
+              </Properties>
+            </Component>
+            <Component class="com.mycompany.estadisticasnba.letraconfg" name="letraconfg4">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Rebotes"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="SansSerif" size="12" style="0"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="com.mycompany.estadisticasnba.letraconfg" name="letraconfg5">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Rebotes"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="SansSerif" size="12" style="0"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="com.mycompany.estadisticasnba.letraconfg" name="letraconfg6">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Perdidas"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="SansSerif" size="12" style="0"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="com.mycompany.estadisticasnba.letraconfg" name="letraconfg7">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Asistencias"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="SansSerif" size="12" style="0"/>
+                </Property>
               </Properties>
             </Component>
           </SubComponents>
@@ -354,7 +451,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="241" max="32767" attributes="0"/>
+                      <EmptySpace pref="294" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -403,7 +500,7 @@
                           <Component id="tiros_libres_encestados" alignment="3" min="-2" pref="27" max="-2" attributes="0"/>
                           <Component id="tiros_encestados_libres_spinner" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="86" max="32767" attributes="0"/>
+                      <EmptySpace pref="40" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

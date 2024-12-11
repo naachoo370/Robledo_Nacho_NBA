@@ -42,6 +42,8 @@ import com.itextpdf.layout.properties.TextAlignment;
 import java.io.FileNotFoundException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.List;
+import javax.swing.ButtonGroup;
 
 
 
@@ -57,6 +59,9 @@ public class nbaestadicsticas extends javax.swing.JFrame {
     // Define equipos y jugadores
     String[] Atm = {"Antoine Griezmann", "Koke Resurrección", "Pablo Barrios Rivas", "Julián Álvarez", "José María Giménez"};
     String[] Dam = {"Nacho Robledo", "Sergio Martin", "Victor Ruiz", "Juan Marin", "Alba Gonzalez"};
+    
+    private List<letraconfg> variables;
+    private Terminos aceptas = new Terminos();
 
 
     public nbaestadicsticas() {
@@ -68,7 +73,10 @@ public class nbaestadicsticas extends javax.swing.JFrame {
         Guardar.addActionListener(evt -> crearExcel());
         graficos.addActionListener(evt -> generarGrafico());
         pdf.addActionListener(evt -> pdf());
-
+        setResizable(false);
+        
+        configurarEtiquetas();
+        configurarMenu();
     }
 
     private void seleccionarEquipo() {
@@ -690,51 +698,66 @@ public class nbaestadicsticas extends javax.swing.JFrame {
                 return 0.0;
         }
     }
+    
+    
+
+
+    private void configurarEtiquetas() {
+    variables = new ArrayList<>();
+    variables.add(letraconfg3); 
+    variables.add(letraconfg3); 
+    variables.add(letraconfg4); 
+    variables.add(letraconfg5); 
+    variables.add(letraconfg6); 
+    variables.add(letraconfg7); 
 
 
 
+
+ 
+}
+
+    private void actualizarTamañoFuente(int size) {
+            for (letraconfg etiqueta : variables) {
+                etiqueta.changeSize(size);
+            }
+        }
+
+    private void configurarMenu() {
+            ButtonGroup grupoBotones = new ButtonGroup();
+
+            // Añadir los botones al grupo
+            grupoBotones.add(pequeño);
+            grupoBotones.add(normal);
+            grupoBotones.add(grande);
+
+            // Añadir ActionListeners a los botones
+            pequeño.addActionListener(e -> actualizarTamañoFuente(1));
+            normal.addActionListener(e -> actualizarTamañoFuente(2));
+            grande.addActionListener(e -> actualizarTamañoFuente(3));
+
+            // Establecer el botón "normal" como predeterminado
+            normal.setSelected(true);
+        }
+     
     
-        
-       
+    
+ 
     
     
     
     
+    
+    
+    
+    
+    
+    
+   
+
   
-    
-    
-
-        
-        
-        
-        
-        
-        
-        
-
-    
-    
-    
-    
-    
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-        
-        
-        
-    
-    
-    
+  
+ 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -744,19 +767,17 @@ public class nbaestadicsticas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        letraconfg3 = new com.mycompany.estadisticasnba.letraconfg();
         jTabbedTiros = new javax.swing.JTabbedPane();
         rebotes = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         rebotes_spinner = new javax.swing.JSpinner();
-        asistencias = new javax.swing.JLabel();
         asistencias_spinner = new javax.swing.JSpinner();
-        robos = new javax.swing.JLabel();
         robos_spinner = new javax.swing.JSpinner();
         tapones_a_favor = new javax.swing.JLabel();
         tapones_a_favor_spinner = new javax.swing.JSpinner();
         tiros_fallados = new javax.swing.JLabel();
         tiros_libres_fallados = new javax.swing.JLabel();
-        perdidas = new javax.swing.JLabel();
         tapones_recibidos = new javax.swing.JLabel();
         tiros_falladas_spinner = new javax.swing.JSpinner();
         tiros_libres_fallados_spinner = new javax.swing.JSpinner();
@@ -769,6 +790,10 @@ public class nbaestadicsticas extends javax.swing.JFrame {
         Guardar = new javax.swing.JButton();
         graficos = new javax.swing.JButton();
         pdf = new javax.swing.JButton();
+        letraconfg4 = new com.mycompany.estadisticasnba.letraconfg();
+        letraconfg5 = new com.mycompany.estadisticasnba.letraconfg();
+        letraconfg6 = new com.mycompany.estadisticasnba.letraconfg();
+        letraconfg7 = new com.mycompany.estadisticasnba.letraconfg();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         jLabel5 = new javax.swing.JLabel();
         jSpinnertirosRealizados = new javax.swing.JSpinner();
@@ -788,6 +813,13 @@ public class nbaestadicsticas extends javax.swing.JFrame {
         Equipo = new javax.swing.JLabel();
         jugadores = new javax.swing.JComboBox<>();
         equipo = new javax.swing.JComboBox<>();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        tamaño1 = new javax.swing.JMenu();
+        pequeño = new javax.swing.JRadioButtonMenuItem();
+        normal = new javax.swing.JRadioButtonMenuItem();
+        grande = new javax.swing.JRadioButtonMenuItem();
+        condicionesServicio1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -796,19 +828,12 @@ public class nbaestadicsticas extends javax.swing.JFrame {
         rebotes.setBackground(new java.awt.Color(204, 204, 204));
 
         jLabel9.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel9.setText("Rebotes");
-
-        asistencias.setText("Asistencias");
-
-        robos.setText("Robos");
 
         tapones_a_favor.setText("Tapones a Favor");
 
         tiros_fallados.setText("Tiros fallados");
 
         tiros_libres_fallados.setText("Tiros libres fallados");
-
-        perdidas.setText("Perdidas");
 
         tapones_recibidos.setText("Tapones recibidos");
 
@@ -833,83 +858,102 @@ public class nbaestadicsticas extends javax.swing.JFrame {
 
         pdf.setText("PDF");
 
+        letraconfg4.setText("Rebotes");
+        letraconfg4.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+
+        letraconfg5.setText("Rebotes");
+        letraconfg5.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+
+        letraconfg6.setText("Perdidas");
+        letraconfg6.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+
+        letraconfg7.setText("Asistencias");
+        letraconfg7.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+
         javax.swing.GroupLayout rebotesLayout = new javax.swing.GroupLayout(rebotes);
         rebotes.setLayout(rebotesLayout);
         rebotesLayout.setHorizontalGroup(
             rebotesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(rebotesLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(30, 30, 30)
                 .addComponent(pdf)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(rebotesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(rebotesLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(Guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22))
+                    .addGroup(rebotesLayout.createSequentialGroup()
                         .addGroup(rebotesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(rebotesLayout.createSequentialGroup()
+                                .addGap(79, 79, 79)
                                 .addGroup(rebotesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(robos, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(faltas_recibidas)
+                                    .addGroup(rebotesLayout.createSequentialGroup()
+                                        .addGroup(rebotesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(tiros_fallados)
+                                            .addComponent(tapones_a_favor)
+                                            .addComponent(tiros_libres_fallados)
+                                            .addComponent(tapones_recibidos)
+                                            .addComponent(faltas_realizadas))
+                                        .addGap(52, 52, 52)
+                                        .addGroup(rebotesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(tiros_falladas_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(tiros_libres_fallados_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(tapones_a_favor_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(tapones_recibidos_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(faltas_realizadas_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addGroup(rebotesLayout.createSequentialGroup()
+                                .addGroup(rebotesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(rebotesLayout.createSequentialGroup()
+                                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rebotesLayout.createSequentialGroup()
+                                        .addGroup(rebotesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(letraconfg4, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(letraconfg5, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(18, 18, 18)))
                                 .addGroup(rebotesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(rebotes_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(robos_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(49, 49, 49)
                                 .addGroup(rebotesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(rebotesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addGroup(rebotesLayout.createSequentialGroup()
-                                            .addComponent(perdidas)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(perdidas_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(rebotesLayout.createSequentialGroup()
-                                            .addComponent(asistencias)
-                                            .addGap(49, 49, 49)
-                                            .addComponent(asistencias_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(FaltasRecibidas_Spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(rebotesLayout.createSequentialGroup()
-                                .addGap(79, 79, 79)
-                                .addGroup(rebotesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(faltas_recibidas)
-                                    .addGroup(rebotesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(Guardar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(rebotesLayout.createSequentialGroup()
-                                            .addGroup(rebotesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(tiros_fallados)
-                                                .addComponent(tapones_a_favor)
-                                                .addComponent(tiros_libres_fallados)
-                                                .addComponent(tapones_recibidos)
-                                                .addComponent(faltas_realizadas))
-                                            .addGap(52, 52, 52)
-                                            .addGroup(rebotesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(tiros_falladas_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(tiros_libres_fallados_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(tapones_a_favor_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(tapones_recibidos_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(faltas_realizadas_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                        .addGap(0, 210, Short.MAX_VALUE))
-                    .addGroup(rebotesLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(graficos, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                                    .addComponent(FaltasRecibidas_Spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(graficos, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(rebotesLayout.createSequentialGroup()
+                                        .addGap(6, 6, 6)
+                                        .addGroup(rebotesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(rebotesLayout.createSequentialGroup()
+                                                .addComponent(letraconfg6, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(perdidas_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(rebotesLayout.createSequentialGroup()
+                                                .addComponent(letraconfg7, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(asistencias_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                        .addGap(210, 210, Short.MAX_VALUE))))
         );
         rebotesLayout.setVerticalGroup(
             rebotesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(rebotesLayout.createSequentialGroup()
-                .addGap(65, 65, 65)
+                .addGap(42, 42, 42)
                 .addGroup(rebotesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(rebotes_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(asistencias)
-                    .addComponent(asistencias_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(asistencias_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(letraconfg5, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(letraconfg7, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(rebotesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(robos)
                     .addComponent(robos_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(perdidas)
-                    .addComponent(perdidas_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
+                    .addComponent(perdidas_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(letraconfg4, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(letraconfg6, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
                 .addGroup(rebotesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(faltas_recibidas)
                     .addComponent(FaltasRecibidas_Spinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
+                .addGap(34, 34, 34)
                 .addGroup(rebotesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tiros_falladas_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tiros_fallados))
@@ -1029,7 +1073,7 @@ public class nbaestadicsticas extends javax.swing.JFrame {
                             .addComponent(tiros_encestados_2, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tiros_libres_realizados, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tiros_libres_encestados, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(241, Short.MAX_VALUE))
+                .addContainerGap(294, Short.MAX_VALUE))
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1068,10 +1112,65 @@ public class nbaestadicsticas extends javax.swing.JFrame {
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tiros_libres_encestados, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tiros_encestados_libres_spinner, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         jTabbedTiros.addTab("Tiros", jLayeredPane1);
+
+        tamaño1.setText("Tamaño fuente");
+        tamaño1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tamaño1ActionPerformed(evt);
+            }
+        });
+
+        pequeño.setSelected(true);
+        pequeño.setText("Pequeño");
+        pequeño.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pequeñoActionPerformed(evt);
+            }
+        });
+        tamaño1.add(pequeño);
+
+        normal.setSelected(true);
+        normal.setText("Mediano");
+        normal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                normalActionPerformed(evt);
+            }
+        });
+        tamaño1.add(normal);
+
+        grande.setSelected(true);
+        grande.setText("Grande");
+        tamaño1.add(grande);
+
+        jMenuBar2.add(tamaño1);
+
+        condicionesServicio1.setText("Condiciones de servicio");
+        condicionesServicio1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                condicionesServicio1MouseClicked(evt);
+            }
+        });
+        condicionesServicio1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                condicionesServicio1ActionPerformed(evt);
+            }
+        });
+
+        jMenuItem1.setText("jMenuItem1");
+        jMenuItem1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuItem1MouseClicked(evt);
+            }
+        });
+        condicionesServicio1.add(jMenuItem1);
+
+        jMenuBar2.add(condicionesServicio1);
+
+        setJMenuBar(jMenuBar2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1084,7 +1183,8 @@ public class nbaestadicsticas extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jTabbedTiros)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jTabbedTiros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -1101,6 +1201,35 @@ public class nbaestadicsticas extends javax.swing.JFrame {
     private void graficosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_graficosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_graficosActionPerformed
+
+    private void condicionesServicio1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_condicionesServicio1MouseClicked
+        if (aceptas == null || !aceptas.isVisible()){
+            aceptas = new Terminos();
+            aceptas.setVisible(true);
+        }
+
+    }//GEN-LAST:event_condicionesServicio1MouseClicked
+
+    private void tamaño1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tamaño1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tamaño1ActionPerformed
+
+    private void condicionesServicio1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_condicionesServicio1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_condicionesServicio1ActionPerformed
+
+    private void pequeñoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pequeñoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pequeñoActionPerformed
+
+    private void normalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_normalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_normalActionPerformed
+
+    private void jMenuItem1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem1MouseClicked
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem1MouseClicked
 
     
   
@@ -1144,27 +1273,36 @@ public class nbaestadicsticas extends javax.swing.JFrame {
     private javax.swing.JLabel Equipo;
     private javax.swing.JSpinner FaltasRecibidas_Spinner;
     private javax.swing.JButton Guardar;
-    private javax.swing.JLabel asistencias;
     private javax.swing.JSpinner asistencias_spinner;
+    private javax.swing.JMenu condicionesServicio1;
     private javax.swing.JComboBox<String> equipo;
     private javax.swing.JLabel faltas_realizadas;
     private javax.swing.JSpinner faltas_realizadas_spinner;
     private javax.swing.JLabel faltas_recibidas;
     private javax.swing.JButton graficos;
+    private javax.swing.JRadioButtonMenuItem grande;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane1;
+    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JSpinner jSpinnertirosRealizados;
     private javax.swing.JTabbedPane jTabbedTiros;
     private javax.swing.JLabel jugador;
     private javax.swing.JComboBox<String> jugadores;
+    private com.mycompany.estadisticasnba.letraconfg letraconfg3;
+    private com.mycompany.estadisticasnba.letraconfg letraconfg4;
+    private com.mycompany.estadisticasnba.letraconfg letraconfg5;
+    private com.mycompany.estadisticasnba.letraconfg letraconfg6;
+    private com.mycompany.estadisticasnba.letraconfg letraconfg7;
+    private javax.swing.JRadioButtonMenuItem normal;
     private javax.swing.JButton pdf;
-    private javax.swing.JLabel perdidas;
+    private javax.swing.JRadioButtonMenuItem pequeño;
     private javax.swing.JSpinner perdidas_spinner;
     private javax.swing.JPanel rebotes;
     private javax.swing.JSpinner rebotes_spinner;
-    private javax.swing.JLabel robos;
     private javax.swing.JSpinner robos_spinner;
+    private javax.swing.JMenu tamaño1;
     private javax.swing.JLabel tapones_a_favor;
     private javax.swing.JSpinner tapones_a_favor_spinner;
     private javax.swing.JLabel tapones_recibidos;
